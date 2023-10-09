@@ -27,7 +27,11 @@ DISTRIBUTABLES += res
 DISTRIBUTABLES += $(wildcard LICENSE*)
 DISTRIBUTABLES += $(wildcard presets)
 
-$(VERILATED_PATH)/Vcore.mk: rtl/core.sv
+rtl/core.v: rtl/Core.hs
+	clash --verilog rtl/Core.hs
+	cp verilog/Core.topEntity/core.v rtl/core.v
+
+$(VERILATED_PATH)/Vcore.mk: rtl/core.v
 	mkdir -p build; \
 	verilator --cc $< -Mdir $(VERILATED_PATH) -CFLAGS -fPIC
 

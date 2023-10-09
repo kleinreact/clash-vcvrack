@@ -4,3 +4,9 @@
 /plugin.dylib
 /plugin.dll
 .DS_Store
+rtl/core.v
+rtl/*.dyn_hi
+rtl/*.dyn_o
+rtl/*.hi
+rtl/*.o
+verilog
